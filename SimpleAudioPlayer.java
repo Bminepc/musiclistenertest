@@ -46,7 +46,7 @@ public class SimpleAudioPlayer
     {
         try
         {
-            filePath = "Your path for the file";
+            filePath = "/Users/benjaminwendt/Desktop/Ableton Live Projects/Musik aus dem Wupperbogen Project/Blockflöten 1.wav";
             SimpleAudioPlayer audioPlayer =
                     new SimpleAudioPlayer();
 
@@ -102,6 +102,9 @@ public class SimpleAudioPlayer
                 long c1 = sc.nextLong();
                 jump(c1);
                 break;
+            case 6:
+                audiolevel();
+
 
         }
 
@@ -190,6 +193,12 @@ public class SimpleAudioPlayer
                 new File(filePath).getAbsoluteFile());
         clip.open(audioInputStream);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    public void audiolevel(){
+        float f = clip.getLevel();
+        System.out.println(clip.getMicrosecondPosition());
+        System.out.println(clip.getLevel());
     }
 
 }
