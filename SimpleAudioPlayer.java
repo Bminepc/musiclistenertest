@@ -81,31 +81,19 @@ public class SimpleAudioPlayer
     private void gotoChoice(int c)
             throws IOException, LineUnavailableException, UnsupportedAudioFileException
     {
-        switch (c)
-        {
-            case 1:
-                pause();
-                break;
-            case 2:
-                resumeAudio();
-                break;
-            case 3:
-                restart();
-                break;
-            case 4:
-                stop();
-                break;
-            case 5:
+        switch (c) {
+            case 1 -> pause();
+            case 2 -> resumeAudio();
+            case 3 -> restart();
+            case 4 -> stop();
+            case 5 -> {
                 System.out.println("Enter time (" + 0 +
                         ", " + clip.getMicrosecondLength() + ")");
                 Scanner sc = new Scanner(System.in);
                 long c1 = sc.nextLong();
                 jump(c1);
-                break;
-            case 6:
-                audiolevel();
-
-
+            }
+            case 6 -> audiolevel();
         }
 
     }
@@ -162,8 +150,7 @@ public class SimpleAudioPlayer
     }
 
     // Method to stop the audio
-    public void stop() throws UnsupportedAudioFileException,
-            IOException, LineUnavailableException
+    public void stop()
     {
         currentFrame = 0L;
         clip.stop();
@@ -196,7 +183,6 @@ public class SimpleAudioPlayer
     }
 
     public void audiolevel(){
-        float f = clip.getLevel();
         System.out.println(clip.getMicrosecondPosition());
         System.out.println(clip.getLevel());
     }
